@@ -33,6 +33,4 @@ public class Error {
         Error error3 = new Error(false, 100000, "today");
         error3.printInfo();
     }
-
-
 }
