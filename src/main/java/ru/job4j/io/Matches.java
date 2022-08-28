@@ -16,11 +16,10 @@ public class Matches {
                 if (matches < 4 && matches > 0 && matches <= count) {
                     count -= matches;
                     System.out.println(count + " спичек(ки) осталось.");
+                    turn = !turn;
                 } else {
                     System.out.println("Ошибка, введите корректное число");
-                    turn = !turn;
                 }
-                turn = !turn;
             }
             if (!turn) {
                 System.out.println("Выиграл первый игрок");
