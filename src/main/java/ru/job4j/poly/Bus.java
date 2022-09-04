@@ -4,11 +4,12 @@ public class Bus implements Transport {
 
     @Override
     public void go() {
+        System.out.println("Go");
     }
 
     @Override
-    public int passengers(int passengers) {
-        return passengers;
+    public void passengers(int passengers) {
+        System.out.println(passengers);
     }
 
     @Override
