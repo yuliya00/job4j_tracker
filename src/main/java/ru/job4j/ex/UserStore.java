@@ -5,11 +5,9 @@ public class UserStore {
         for (User user : users) {
             if (login.equals(user.getUsername())) {
                 return user;
-            } else {
-                throw new UserNotFoundException("User not found");
             }
         }
-        return null;
+        throw new UserNotFoundException("User not found");
     }
 
     public static boolean validate(User user) throws UserInvalidException {
@@ -32,10 +30,6 @@ public class UserStore {
             ea.printStackTrace();
         } catch (UserNotFoundException en) {
             en.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        } catch (Throwable th) {
-            th.printStackTrace();
         }
 
         User[] users1 = {
@@ -50,10 +44,6 @@ public class UserStore {
             ea.printStackTrace();
         } catch (UserNotFoundException en) {
             en.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        } catch (Throwable th) {
-            th.printStackTrace();
         }
     }
 }
