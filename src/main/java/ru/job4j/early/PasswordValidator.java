@@ -3,6 +3,7 @@ package ru.job4j.early;
 import java.lang.Character;
 
 public class PasswordValidator {
+
     public static String validate(String password) {
         if (password == null) {
             throw new IllegalArgumentException("Password can't be null");
@@ -28,7 +29,11 @@ public class PasswordValidator {
             if (!Character.isLetterOrDigit(x)) {
                 notLetterOrDigit++;
             }
+            if (upperCase > 0 && lowerCase > 0 && digit > 0 && notLetterOrDigit > 0) {
+                break;
+            }
         }
+
         if (upperCase == 0) {
             throw new IllegalArgumentException("Password should contain at least one uppercase letter");
         }
@@ -41,7 +46,25 @@ public class PasswordValidator {
         if (notLetterOrDigit == 0) {
             throw new IllegalArgumentException("Password should contain at least one special symbol");
         }
-        if (!password.toLowerCase().contains("qwerty, 12345, password, admin, user")) {
+        int x = 0;
+        if (x == 0) {
+            if (password.toLowerCase().contains("qwerty")) {
+                x++;
+            }
+            if (password.toLowerCase().contains("12345")) {
+                x++;
+            }
+            if (password.toLowerCase().contains("password")) {
+                x++;
+            }
+            if (password.toLowerCase().contains("admin")) {
+                x++;
+            }
+            if (password.toLowerCase().contains("user")) {
+                x++;
+            }
+        }
+        if (x > 0) {
             throw new IllegalArgumentException("Password shouldn't contain substrings: qwerty, 12345, password, admin, user");
         }
         return password;
