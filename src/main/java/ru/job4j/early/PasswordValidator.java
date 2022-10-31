@@ -46,22 +46,12 @@ public class PasswordValidator {
         if (notLetterOrDigit == 0) {
             throw new IllegalArgumentException("Password should contain at least one special symbol");
         }
+        String[] notPassword = {"qwerty", "12345", "password", "admin", "user"};
         int x = 0;
-        if (x == 0) {
-            if (password.toLowerCase().contains("qwerty")) {
+        for (String rsl : notPassword) {
+            if (password.toLowerCase().contains(rsl)) {
                 x++;
-            }
-            if (password.toLowerCase().contains("12345")) {
-                x++;
-            }
-            if (password.toLowerCase().contains("password")) {
-                x++;
-            }
-            if (password.toLowerCase().contains("admin")) {
-                x++;
-            }
-            if (password.toLowerCase().contains("user")) {
-                x++;
+                break;
             }
         }
         if (x > 0) {
