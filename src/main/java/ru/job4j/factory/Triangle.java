@@ -1,4 +1,4 @@
-package factory;
+package ru.job4j.factory;
 
 public class Triangle implements Shape {
     int a;
