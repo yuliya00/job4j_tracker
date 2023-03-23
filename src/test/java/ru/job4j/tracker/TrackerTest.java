@@ -2,6 +2,7 @@ package ru.job4j.tracker;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -77,5 +78,41 @@ public class TrackerTest {
         int id = bug.getId();
         tracker.delete(id);
         assertThat(tracker.findById(id)).isNull();
+    }
+
+    @Test
+    public void ascendingSort() {
+        List<Item> items = Arrays.asList(
+                new Item("Sveta"),
+                new Item("Vasya"),
+                new Item("Petr"),
+                new Item("Igor")
+        );
+        items.sort(new ItemAscByName());
+        List<Item> expected = Arrays.asList(
+                new Item("Igor"),
+                new Item("Petr"),
+                new Item("Sveta"),
+                new Item("Vasya")
+        );
+        assertThat(items).isEqualTo(expected);
+    }
+
+    @Test
+    public void descendingSort() {
+        List<Item> items = Arrays.asList(
+                new Item("Sveta"),
+                new Item("Vasya"),
+                new Item("Petr"),
+                new Item("Igor")
+        );
+        items.sort(new ItemDescByName());
+        List<Item> expected = Arrays.asList(
+                new Item("Vasya"),
+                new Item("Sveta"),
+                new Item("Petr"),
+                new Item("Igor")
+        );
+        assertThat(items).isEqualTo(expected);
     }
 }
