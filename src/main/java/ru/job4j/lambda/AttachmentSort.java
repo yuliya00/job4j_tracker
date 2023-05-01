@@ -11,7 +11,6 @@ public class AttachmentSort {
                 new Attachment("image 2", 34),
                 new Attachment("image 3", 13)
         );
-        // Анонимный класс
         Comparator<Attachment> comparator =  new Comparator<Attachment>() {
             @Override
             public int compare(Attachment left, Attachment right) {
